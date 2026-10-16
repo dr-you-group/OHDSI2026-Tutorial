@@ -40,7 +40,7 @@ Both notebooks follow the ETL of the ImageWG [Medical Imaging Extension Conventi
 3. **Choose a runtime** — for notebook 02: **Runtime → Change runtime type → T4 GPU**.
 4. **Run all** — **Runtime → Run all**. Notebook 01 downloads the data and the vocabulary itself.
 5. **Notebook 01 → notebook 02** — the last section of notebook 01 saves the database and the DICOM files to your Google Drive (`MyDrive/micdm_tutorial/`), and the *Setup* section of notebook 02 loads them. If they are not there, the catch-up cell rebuilds the notebook 01 database automatically, so you can start with notebook 02 if you fell behind.
-6. **Take the database home** — the last code cell of notebook 02 downloads `omop_micdm.db` (notebooks 01 + 02 in one SQLite file, without the ETL work tables). Open it in [SQLite Viewer](https://sqliteviewer.app/); the browser may name the file `omop_micdm (2).db`.
+6. **Take the database home** — the last code cell of notebook 02 downloads `omop_micdm.db` (notebooks 01 + 02 in one SQLite file, without the ETL work tables). Open it in [SQLite Viewer](https://sqliteviewer.app/); the browser may name the file `omop_micdm (1).db`.
 
 ## Resources
 

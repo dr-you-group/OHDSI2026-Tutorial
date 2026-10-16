@@ -7,7 +7,7 @@
 | **Date** | Monday, October 20, 2026 |
 | **Time** | 08:00–12:00 |
 | **Environment** | Google Colab (no local install) |
-| **Agenda** | [tutorial-agenda.docx](https://docs.google.com/document/d/1DmHRaefxGvuvXr3d9bzi7w43XXjcn3uS/edit?usp=sharing&ouid=109112190111809847277&rtpof=true&sd=true) |
+| **Slide** | [TBD] |
 
 
 
@@ -27,8 +27,8 @@ Each section of the notebooks is labelled with the ImageWG wiki flow-chart step 
 
 | Notebook | Wiki steps | What you build | Runtime | Open |
 |---|---|---|---|---|
-| **01. From DICOM archive to MI-CDM** | 1–6 | Index 100 RSNA CR files, extract and characterize DICOM headers, load the DICOM vocabulary, and ETL into `PERSON`, `PROCEDURE_OCCURRENCE`, `IMAGE_OCCURRENCE` and `MEASUREMENT` (each DICOM attribute row linked to its series by `measurement_event_id`); data-quality checks and an imaging search query | CPU is fine (~5 min incl. download) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dr-you-group/OHDSI2026-Tutorial/blob/main/notebooks/01_DICOM_to_MI-CDM_ETL.ipynb) |
-| **02. Image-derived features with provenance** | 7–11 | Run TorchXRayVision classification and segmentation, store findings in `IMAGE_FEATURE` with values in `MEASUREMENT` (ETL guide §7), keep provenance (`alg_system`, `alg_datetime`), run data-quality checks, and download the complete SQLite database | T4 GPU recommended | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dr-you-group/OHDSI2026-Tutorial/blob/main/notebooks/02_Image_Derived_Features.ipynb) |
+| **01. From DICOM archive to MI-CDM** | 1–6 | Index 100 Chest X-ray files, extract and characterize DICOM headers, load the DICOM vocabulary, and ETL into `PERSON`, `PROCEDURE_OCCURRENCE`, `IMAGE_OCCURRENCE` and `MEASUREMENT` (each DICOM attribute row linked to its series by `measurement_event_id`); data-quality checks, an imaging search query (with a *your turn* cell for your own criteria), and save the database and the DICOM files to Google Drive for notebook 02 | CPU is fine (~5 min incl. download) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dr-you-group/OHDSI2026-Tutorial/blob/main/notebooks/01_DICOM_to_MI-CDM_ETL.ipynb) |
+| **02. Image-derived features with provenance** | 7–11 | Load the notebook 01 output from Google Drive, run TorchXRayVision classification (3 imaging findings) and segmentation (cardiothoracic ratio and two widths in mm), map the features to standard and custom concepts, load the values into `MEASUREMENT` and link them through `IMAGE_FEATURE` (findings, `alg_system`, `alg_datetime`), trace values back to their images and DICOM attributes, run data-quality checks, and download the OMOP CDM + MI-CDM database | T4 GPU recommended | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dr-you-group/OHDSI2026-Tutorial/blob/main/notebooks/02_Image_Derived_Features.ipynb) |
 
 ## Running in Google Colab
 
@@ -39,8 +39,8 @@ Each section of the notebooks is labelled with the ImageWG wiki flow-chart step 
 2. **Sign in** with a Google account and choose **File → Save a copy in Drive** to keep your changes.
 3. **Choose a runtime** — for notebook 02: **Runtime → Change runtime type → T4 GPU**.
 4. **Run all** — **Runtime → Run all**. Notebook 01 downloads the data and the vocabulary itself.
-5. **Starting notebook 02 in a new runtime?** The catch-up cell in section 0 rebuilds the notebook 01 database automatically, so you can start there if you fell behind.
-6. **Take the database home** — the last cell of notebook 02 downloads `omop_micdm.db` (notebooks 01 + 02 in one SQLite file).
+5. **Notebook 01 → notebook 02** — the last section of notebook 01 saves the database and the DICOM files to your Google Drive (`MyDrive/micdm_tutorial/`), and the *Setup* section of notebook 02 loads them. If they are not there, the catch-up cell rebuilds the notebook 01 database automatically, so you can start with notebook 02 if you fell behind.
+6. **Take the database home** — the last code cell of notebook 02 downloads `omop_micdm.db` (notebooks 01 + 02 in one SQLite file, without the ETL work tables). Open it in [SQLite Viewer](https://sqliteviewer.app/); the browser may name the file `omop_micdm (2).db`.
 
 ## Resources
 

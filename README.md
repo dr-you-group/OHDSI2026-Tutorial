@@ -23,7 +23,7 @@ OHDSI2026-Tutorial/
 
 ## Notebooks
 
-Each section of the notebooks is labelled with the ImageWG wiki flow-chart step it implements [1].
+Both notebooks follow the ETL of the ImageWG [Medical Imaging Extension Conventions](https://github.com/OHDSI/ImageWG/wiki/Medical-Imaging-Extension-Conventions) [1]. Each section is labelled with the wiki flow-chart step it implements.
 
 | Notebook | Wiki steps | What you build | Runtime | Open |
 |---|---|---|---|---|
@@ -49,9 +49,11 @@ Each section of the notebooks is labelled with the ImageWG wiki flow-chart step 
 | **Format** | Follow the ImageWG wiki ETL flow chart step by step [1] |
 | **Data** | RSNA Pneumonia Detection Challenge 2018 — a 100-file CR subset fetched in Colab [2] |
 | **Model** | TorchXRayVision [3]: DenseNet-121 (classification), PSPNet (chest segmentation) |
+| **ETL Reference** | [DICOM2OMOP](https://github.com/paulnagy/DICOM2OMOP): DICOM vocabulary staging files and demonstration notebooks [4] |
 
 ## References
 
 1. Medical Imaging Extension Conventions. (n.d.). GitHub. Retrieved September 29, 2026, from https://github.com/OHDSI/ImageWG/wiki/Medical-Imaging-Extension-Conventions
 2. Anouk Stein, MD, Carol Wu, Chris Carr, George Shih, Jamie Dulkowski, kalpathy, Leon Chen, Luciano Prevedello, Marc Kohli, MD, Mark McDonald, Peter, Phil Culliton, Safwan Halabi MD, and Tian Xia. RSNA Pneumonia Detection Challenge. https://www.kaggle.com/competitions/rsna-pneumonia-detection-challenge, 2018. Kaggle.
 3. Cohen, J. P., Viviano, J. D., Bertin, P., Morrison, P., Torabian, P., Guarrera, M., Lungren, M. P., Chaudhari, A., Brooks, R., Hashir, M., & Bertrand, H. (2021). TorchXRayVision: A library of chest X-ray datasets and models (arXiv:2111.00595). arXiv. https://doi.org/10.48550/arXiv.2111.00595
+4. Nagy, P. (n.d.). DICOM2OMOP. GitHub. Retrieved October 16, 2026, from https://github.com/paulnagy/DICOM2OMOP

@@ -8,7 +8,7 @@
 | **Time** | 08:00–12:00 |
 | **Environment** | Google Colab (no local install) |
 | **Agenda** | [tutorial-agenda.docx](https://docs.google.com/document/d/1DmHRaefxGvuvXr3d9bzi7w43XXjcn3uS/edit?usp=sharing&ouid=109112190111809847277&rtpof=true&sd=true) |
-| **Slide plan** | [MI-CDM Tutorial OHDSI 2026 – Slide Plan](https://docs.google.com/document/d/145PchSsbl7MAWGUyZgR49wpqxBbOhTHOkF0G5J87kgg/edit?usp=sharing) |
+
 
 
 ## Repository structure
@@ -27,8 +27,8 @@ Each section of the notebooks is labelled with the ImageWG wiki flow-chart step 
 
 | Notebook | Wiki steps | What you build | Runtime | Open |
 |---|---|---|---|---|
-| **01. From DICOM archive to MI-CDM** | 1–6 | Index 100 RSNA CR files, extract and characterize DICOM headers, load the DICOM vocabulary, and ETL into `PERSON`, `PROCEDURE_OCCURRENCE`, `IMAGE_OCCURRENCE`, `MEASUREMENT` and `IMAGE_FEATURE`; data-quality checks and an imaging search query | CPU is fine (~5 min incl. download) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dr-you-group/OHDSI2026-Tutorial/blob/main/notebooks/01_DICOM_to_MI-CDM_ETL.ipynb) |
-| **02. Image-derived features with provenance** | 7–11 | Run TorchXRayVision classification and segmentation, store findings in `IMAGE_FEATURE` with values in `OBSERVATION`, keep provenance (`alg_system`, `alg_datetime`), run data-quality checks, and download the complete SQLite database | T4 GPU recommended | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dr-you-group/OHDSI2026-Tutorial/blob/main/notebooks/02_Image_Derived_Features.ipynb) |
+| **01. From DICOM archive to MI-CDM** | 1–6 | Index 100 RSNA CR files, extract and characterize DICOM headers, load the DICOM vocabulary, and ETL into `PERSON`, `PROCEDURE_OCCURRENCE`, `IMAGE_OCCURRENCE` and `MEASUREMENT` (each DICOM attribute row linked to its series by `measurement_event_id`); data-quality checks and an imaging search query | CPU is fine (~5 min incl. download) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dr-you-group/OHDSI2026-Tutorial/blob/main/notebooks/01_DICOM_to_MI-CDM_ETL.ipynb) |
+| **02. Image-derived features with provenance** | 7–11 | Run TorchXRayVision classification and segmentation, store findings in `IMAGE_FEATURE` with values in `MEASUREMENT` (ETL guide §7), keep provenance (`alg_system`, `alg_datetime`), run data-quality checks, and download the complete SQLite database | T4 GPU recommended | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dr-you-group/OHDSI2026-Tutorial/blob/main/notebooks/02_Image_Derived_Features.ipynb) |
 
 ## Running in Google Colab
 
